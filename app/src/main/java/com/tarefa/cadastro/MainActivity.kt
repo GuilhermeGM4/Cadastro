@@ -4,12 +4,14 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.AdapterView.OnItemSelectedListener
+import android.widget.RadioButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.tarefa.cadastro.Formulario
 import com.tarefa.cadastro.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -21,33 +23,22 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(amb.root)
 
-        amb.estadoCivilSp.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                val estadoCivil = (view as TextView).text.toString()
-                if (estadoCivil == "Casado") {
-                    amb.conjugeLl.visibility = View.VISIBLE
-                }
-                else {
-                    amb.run {
-                        amb.conjugeLl.visibility = View.GONE
-                        amb.nomeConjugeEt.setText("")
-                        amb.sobrenomeConjugeEt.setText("")
-                    }
-                }
-            }
+        amb.saveBt.setOnClickListener{
+            val name: String = amb.fullNameEt.text.toString()
+            val phone: String = amb.phoneEt.text.toString()
+            val email: String = amb.emailEt.text.toString()
+            val receiveEmails: Boolean = amb.mailingCb.isChecked
+            val city: String = amb.cityEt.text.toString()
+            val state: String = amb.stateSp.selectedItem.toString()
 
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-                // NSA
-            }
-        }
+            val selectedSexId = amb.sexRg.checkedRadioButtonId
+            val selectedSex = findViewById<RadioButton>(selectedSexId)
+            val sex = selectedSex.text.toString()
 
-        amb.salvarBt.setOnClickListener{
-            Toast.makeText(this@MainActivity, "", Toast.LENGTH_SHORT).show()
+            val form: Formulario = Formulario(name, phone, email, receiveEmails, sex, city, state)
+
+
+            Toast.makeText(this@MainActivity, form.toString(), Toast.LENGTH_LONG).show()
         }
     }
 }
