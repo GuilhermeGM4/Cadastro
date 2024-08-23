@@ -7,7 +7,7 @@ class Formulario {
     private var receiveEmails: Boolean = false
     private var sex: String = ""
     private var city: String = ""
-    private var state: States = States.ACRE
+    private var state: String = ""
 
     constructor(
         fullName: String,
@@ -16,7 +16,7 @@ class Formulario {
         receiveEmails: Boolean,
         sex: String,
         city: String,
-        state: States
+        state: String
     ) {
         this.fullName = fullName
         this.phone = phone
@@ -45,7 +45,12 @@ class Formulario {
     var City: String = city
         private set
 
-    var State: States = state
+    var State: String = state
         private set
+
+    override fun toString(): String {
+        return "Formulario(fullName='$fullName', phone='$phone', email='$email', receiveEmails=$receiveEmails, sex='$sex', city='$city', state='$state', FullName='$FullName', Phone='$Phone', Email='$Email', ReceiveEmails=$ReceiveEmails, Sex='$Sex', City='$City', State='$State')"
+    }
+
 
 }
