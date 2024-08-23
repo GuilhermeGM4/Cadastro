@@ -1,0 +1,31 @@
+package com.tarefa.cadastro
+
+enum class States(val operator: Int) {
+    ACRE(1 shl 0),
+    ALAGOAS(1 shl 1),
+    AMAPA(1 shl 2),
+    AMAZONAS(1 shl 3),
+    BAHIA(1 shl 4),
+    CEARA(1 shl 5),
+    DISTRITO_FEDERAL(1 shl 6),
+    ESPIRITO_SANTO(1 shl 7),
+    GOIAS(1 shl 8),
+    MARANHAO(1 shl 9),
+    MATO_GROSSO(1 shl 10),
+    MATO_GROSSO_DO_SUL(1 shl 11),
+    MINAS_GERAIS(1 shl 12),
+    PARA(1 shl 13),
+    PARAIBA(1 shl 14),
+    PARANA(1 shl 15),
+    PERNAMBUCO(1 shl 16),
+    PIAUI(1 shl 17),
+    RIO_DE_JANEIRO(1 shl 18),
+    RIO_GRANDE_DO_NORTE(1 shl 19),
+    RIO_GRANDE_DO_SUL(1 shl 20),
+    RONDONIA(1 shl 21),
+    RORAIMA(1 shl 22),
+    SANTA_CATARINA(1 shl 23),
+    SAO_PAULO(1 shl 24),
+    SERGIPE(1 shl 25),
+    TOCANTINS(1 shl 26);
+}
